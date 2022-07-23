@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SHGC calculator</title>
+
+	<link rel="stylesheet" href="../static/demo.css">
+	<link rel="stylesheet" href="../static/form-basic.css">
+
+</head>
+
+<!--<link rel="stylesheet" href="/static/style.css" type="text/css">-->
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+ 
+<header>
+		<h1>Equivalent SHGC calculator - ADMINISTRATOR DASHBOARD</h1>
+		
+    </header>
+<br><br>
+
+
+    <div class="main-content">
+<form action="/login" method="POST">
+	<div class="login">
+		<div class="login-screen">
+			
+ 
+			<div class="form-basic">
+				
+ 
+                <input type="button" value="View all Users" 
+onclick="location.href = '/query'" /><br><br>
+
+<input type="button" value="View User Analytics" 
+onclick="location.href = '/traffic'" /><br><br>
+
+<input type="button" value="Search for a User" 
+onclick="location.href = '/search'" /><br><br>
+
+<input type="button" value="Delete a User" 
+onclick="location.href = '/delete'" />
+			    
+			</div>
+		</div>
+	</div>
+</form>
+ </body>
+
+</html>
+{% endif %}
+{% endblock %}

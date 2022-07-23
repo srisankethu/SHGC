@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SHGC calculator</title>
+
+	<link rel="stylesheet" href="../static/demo.css">
+	<link rel="stylesheet" href="../static/form-basic.css">
+<style>
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight : normal;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#673AB7;
+    color: white;
+}
+</style>
+</head>
+
+<!--<link rel="stylesheet" href="/static/style.css" type="text/css">-->
+{% block body %}
+
+ 
+<header>
+		<h1>Equivalent SHGC calculator</h1>
+		
+    </header>
+<br><br>
+
+
+    <div class="main-content">
+<form action="/login" method="POST">
+	<div class="login">
+		<div class="login-screen">
+			
+ 
+			<div class="form-basic">
+
+				<table id="customers">
+         <thead>
+            <tr>
+               <th>Username</th>
+               <th>Name</th>
+               <th>Email</th>
+               <th>Phone</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+
+            {% for student in students %}
+               <tr>
+                  <td>{{ student[1]}}</td>
+                  <td>{{ student[2] }}</td>
+                  <td>{{ student[3] }}</td>
+                  <td>{{ student[4] }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+			    
+			</div>
+		</div>
+	</div>
+</form>
+ </body>
+
+</html>
+{% endblock %}

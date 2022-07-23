@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SHGC calculator</title>
+
+	<link rel="stylesheet" href="../static/demo.css">
+	<link rel="stylesheet" href="../static/form-basic.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+ <style>
+      .font {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 25px;
+        font-weight: normal;
+      }
+    </style>
+</head>
+
+<!--<link rel="stylesheet" href="/static/style.css" type="text/css">-->
+{% block body %}
+{% if session['logged_in'] %}
+<header>
+		<h1>Equivalent SHGC calculator</h1>
+		<a href="/logout">Logout</a>
+    </header>
+<br><br>
+
+
+    <div class="main-content">
+<form >
+	<div class="login">
+		<div class="login-screen">
+			
+ 
+			<div class="form-basic">
+				<div class="form-row"><label>
+
+				<div class="font">
+				<p>The equivalent SHGC of the window is:
+				
+
+</p>
+
+<p ><font size="20">
+{% if text %}
+  {{ text }}
+{% endif %}
+</p></font>
+<br><br>
+<input type="button" value="Go back to home page" 
+onclick="location.href = '/reroute'" />
+
+				</div>
+				</label>
+
+
+				</div>
+ 
+ 
+                 
+			    
+			</div>
+		</div>
+	</div>
+</form>
+ </body>
+
+</html>
+
+{% else %}
+ 
+<p>You need to <a href="/">login</a> to view results</p>
+{% endif %}
+{% endblock %}

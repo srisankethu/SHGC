@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SHGC calculator</title>
+
+	<link rel="stylesheet" href="../static/demo.css">
+	<link rel="stylesheet" href="../static/form-basic.css">
+
+</head>
+
+
+	<header>
+		<h1>Overhang depth calculator (from Target SHGC)</h1>
+        <p>{% if text %}
+  {{ text }}
+{% endif %}</p>
+        <a href="/logout">Logout</a>
+    </header>
+
+    <br><br>
+
+
+    <div class="main-content">
+
+        <!-- You only need this form and the form-basic.css -->
+
+        <form class="form-basic" action = "/ecbc" method="post">
+
+          <!--  <div class="form-title-row">
+                <h1>PLEASE INPUT THE BUILDING DATA</h1>
+            </div> -->
+
+            <div class="form-row">
+                <label>
+                    <span>Building location</span>
+                    <input type="text" name="name" value='Hyderabad'>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>SHGC</span>
+                    <input type="length" name="shgc" placeholder="Solar Heat Gain Coefficient" value="0.4">  <br>
+                </label>
+            </div>
+       
+
+            <div class="form-row">
+                <label>
+                    <span>Window Orientation <br>(in degrees)</span>
+                    <input type="width" name="orien" placeholder="consider north as 0 degrees" value="45">
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>window height <br>(in m.)</span>
+                    <input type="width" name="wheight" placeholder="in m." value='1'>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>window length <br>(in m.)</span>
+                    <input type="width" name="wlength" placeholder="in m." value="1">
+                </label>
+            </div>            
+
+            <hr><br>
+            <div class="form-row">
+                <label>
+                    <span>Overhangs</span>
+                    <input type="checkbox" name="overhang" checked>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Overhang depth  <br>(in m.)</span>
+                    <input type="length" name="odepth" placeholder="length in m." required><br>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Height above window  <br>(in m.)</span>
+                    <input type="length" name="oheight" placeholder="in m." value='0'><br>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Tilt angle with respect to window <br>(in degrees)</span>
+                    <input type="length" name="otilt" placeholder="in degrees" value='90'><br>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Left extension  <br>(in m.)</span>
+                    <input type="length" name="le" placeholder="in m." value='0'><br>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Right extension  <br>(in m.)</span>
+                    <input type="length" name="re" placeholder="in m." value='0'><br>
+                </label>
+            </div>
+
+            <hr><br>
+            <div class="form-row">
+                <label>
+                    <span>Fins</span>
+                    <input type="checkbox" name="fin" checked>
+                </label>
+            </div>
+
+           <!--  <div class="form-row">
+                <label>
+                    <span></span>
+            <input type="radio" name="ftype" value="left" checked> Left<br><span></span>
+            <input type="radio" name="ftype" value="right"> Right<br><span></span>
+            <input type="radio" name="ftype" value="both"> Both <br><span></span>
+            <input type="radio" name="ftype" value="none"> None
+             </label>
+            </div>-->
+
+            <div class="form-row">
+                <label>
+                    <span>Left Extension from Window  <br>(in m.)</span>
+                    <input type="length" name="fle" placeholder="length in m." value='0'><br>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Left Distance Above Top of Window   <br>(in m.)</span>
+                    <input type="length" name="flda" placeholder="length in m." value='0'><br>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Left Distance Below Bottom of Window  <br>(in m.)</span>
+                    <input type="length" name="fldb" placeholder="length in m." value='0'><br>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Left Tilt Angle from Window/Door  <br>(in m.)</span>
+                    <input type="length" name="flt" placeholder="length in degrees" value='90'><br>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Left depth  <br>(in m.)</span>
+                    <input type="length" name="fld" placeholder="length in m." value="0"><br>
+                </label>
+            </div>
+                        <div class="form-row">
+                <label>
+                    <span>Right Extension from Window  <br>(in m.)</span>
+                    <input type="length" name="fre" placeholder="length in m." value='0'><br>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Right Distance Above Top of Window   <br>(in m.)</span>
+                    <input type="length" name="frda" placeholder="length in m." value='0'> <br>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Right Distance Below Bottom of Window  <br>(in m.)</span>
+                    <input type="length" name="frdb" placeholder="length in m." value='0'><br>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Right Tilt Angle from Window/Door  <br>(in m.)</span>
+                    <input type="length" name="frt" placeholder="length in degrees" value='90'><br>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Right depth  <br>(in m.)</span>
+                    <input type="length" name="frd" placeholder="length in m." value="0"><br>
+                </label>
+            </div>
+            
+
+            <div class="form-row">
+                <button type="submit">Calculate</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
